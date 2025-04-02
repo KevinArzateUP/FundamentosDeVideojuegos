@@ -13,7 +13,7 @@ public class ObstacleSpawner : MonoBehaviour
         if (timeSinceStart > timeToSpawn)
         {
             timeSinceStart = 0;
-            generatorObstacle[Random.Range(0,generatorObstacle.Length)].GetObject();    
+            //generatorObstacle[Random.Range(0,generatorObstacle.Length)].GetObject();    
         }
         
 

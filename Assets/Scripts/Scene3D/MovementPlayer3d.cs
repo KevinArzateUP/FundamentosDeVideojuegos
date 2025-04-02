@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MovementPlayer3d : MonoBehaviour
@@ -11,7 +12,7 @@ public class MovementPlayer3d : MonoBehaviour
     public int jumpCount = 0;
     public float jumpHeight = 3f;
     public Vector3 velocity;
-    
+
     void Update()
     {
         // Pregunta si esta parado en el piso...

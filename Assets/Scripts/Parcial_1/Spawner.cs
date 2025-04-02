@@ -18,14 +18,14 @@ public class Spawner : MonoBehaviour
         if (currentTimeEnemies > timeToSpawnEnemies)
         {
             currentTimeEnemies = 0;
-            poolEnemies.GetObject();
+            
         }
         
         currentTimeScores += Time.deltaTime;
         if (currentTimeScores > timeToSpawnScores)
         {
             currentTimeScores = 0;
-            poolScores.GetObject();
+            
         }
     }
 }

@@ -24,13 +24,15 @@ public class ObjectPooling : MonoBehaviour
         }
     }
 
-    public void GetObject()
+    public void GetObject(Transform point)
     {
         for (int i = 0; i < createdObjects.Count; i++)
         {
             if (!createdObjects[i].activeInHierarchy)
             {
-                createdObjects[i].transform.position = new Vector3(9, Random.Range(-5f,5f) , 0);
+                
+                createdObjects[i].transform.position = point.position;
+                createdObjects[i].transform.rotation = point.rotation;
                 createdObjects[i].SetActive(true);
                 return;
             }

@@ -1,4 +1,6 @@
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AnimationPlayer3d : MonoBehaviour
 {
@@ -9,4 +11,14 @@ public class AnimationPlayer3d : MonoBehaviour
         speed = Input.GetAxis("Vertical");
         animator.SetFloat("Speed", speed);
     }
+
+    void Function()
+    {
+        GameObject prefab;
+        
+
+        
+        
+    }
+    
 }
