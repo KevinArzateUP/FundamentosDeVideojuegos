@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class MovementPlayer3d : MonoBehaviour
+public class MovementPlayer3d : MonoBehaviour, IDamagable
 {
     public CharacterController controller;
     public Transform mainCamera;
@@ -12,6 +12,11 @@ public class MovementPlayer3d : MonoBehaviour
     public int jumpCount = 0;
     public float jumpHeight = 3f;
     public Vector3 velocity;
+
+    public int health;
+
+    public delegate void DelegateDamageReceived();
+    public DelegateDamageReceived OnPlayerDeath;
 
     void Update()
     {
@@ -57,5 +62,15 @@ public class MovementPlayer3d : MonoBehaviour
         // del personaje
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    public void OnReceiveDamage(int amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            if (OnPlayerDeath!=null)
+                OnPlayerDeath.Invoke();
+        }
     }
 }

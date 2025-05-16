@@ -3,21 +3,23 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public int damage = 2;
     public float moveSpeed = 3f;
     // Update is called once per frame
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (!other.gameObject.GetComponent<MainPlayerParcial>())
-        {
-            gameObject.SetActive(false);
-        }
         
+        IDamagable damagable = other.gameObject.GetComponent<IDamagable>();
+        if (damagable!=null)
+            damagable.OnReceiveDamage(damage);
+        
+        gameObject.SetActive(false);
     }
 
     void Update()
     {
-        transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+        transform.position += transform.forward * Time.deltaTime * moveSpeed;
     }
     
     private void OnBecameInvisible()
